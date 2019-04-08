@@ -38,23 +38,72 @@
 </head>
 <body>
     <h1 align="middle">Procedural Terrain Generator</h1>
-    <!--<h2 align="middle">Fangyu Wu, Xiaoyun Zhao</h2>-->
+
     <h3>Title, Summary and Team Members</h3>
+    <!--<p><u>Title:</u> Procedural Terrain Generator</p>-->
+    <!--<p><u>Summary:</u> The aim of this project is to create a realistic terrain generator, which will create a randomly-generated, 3D landscape terrain. In the process, we will also account for customizations of textures such as water, grass, stone, etc.</p>-->
+    <!--<h2 align="middle">Fangyu Wu, Xiaoyun Zhao, Fonda Xu (26133804)</h2>-->
     <p>Provide us a descriptive title, 2-3 sentences that summarize your project, and list your three team members along with your SID's.</p>
+
     <h3>Problem Description</h3>
     <p>Here you should provide the context for your idea. Describe the problem that you are trying to solve, why it is important, where it is challenging. Give us a general idea on how you are going to solve it.</p>
+
     <h3>Goals and Deliverables</h3>
-    <p>This is the most important part of your proposal. You should carefully think through what you are trying to accomplish, what results you are going for, and why you think you can accomplish those goals. For example:</p>
+    <p>Our goal in this project is to create a terrain generator such that the resulting terrain appears as realistic as possible. For reference, we would imagine our ideal results to appear to be something along the lines of:</p>
+
+    <div align="center">
+        <table style="width=100%">
+            <tr>
+                <td align="middle">
+                    <img src="images/img1.jpg" width="480px" />
+                    <figcaption align="middle">World of Tanks, environment</figcaption>
+                </td>
+                <td align="middle">
+                    <img src="images/img2.jpg" width="460px" />
+                    <figcaption align="middle">Terragen, example</figcaption>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <p>It's difficult to specify the parameters of how we will be measuring quality/performance, since our primary goal is, essentially, <i>photorealism.</i> That being said, we will constantly be researching for ways to make our terrain appear more compelling. (Ex. Random placement of trees should be clustered, as they usually are in the real world.) We will also likely be comparing our renderings against photographs of their actual, real-world counterparts to discover shortcomings in our implementations and achieve greater accuracy.</p>
+
+    <p><u>Baseline Plan:</u></p>
+    <p><b>Basic Terrain Creation:</b> We want to have a functional terrain generator, which will require writing algorithms for:</p>
     <ul>
-        <li>Since this is a graphics class you will likely define the kind of images you will create (e.g. including a photo of a new lighting effect you will simulate).</li>
-        <li>If you are working on an interactive system, describe what demo you will create.</li>
-        <li>Define how you will measure the quality / performance of your system (e.g. graphs showing speedup, or quantifying accuracy). It may not be possible to define precise target metrics at this time, but we encourage you to try.</li>
-        <li>What questions do you plan to answer with your analysis?</li>
-        <li>You should break this section into two parts: (1) what you plan to deliver, and (2) what you hope to deliver. In (1), describe what you believe you must accomplish to have a successful project and achieve the grade you expect (i.e. your baseline plan -- planning for some unexpected problems would make sense). In (2), describe what you hope to achieve if things go well and you get ahead of schedule (your aspirational plan).</li>
+        <li><b>Value Noise:</b> This is used for height sampling of our terrain. Given a lattice of points, assigned random values, the noise function uses cubic interpolation to calculate octaves, based on the values of neighboring points.</li>
+        <li><b>Generate Terrain:</b> Calculate positions of islands using rectangle placement with intersection checks. Then, using Value Noise, multiply with a mask and apply to the island(s). Multiplying by a mask guarantees a smooth transition between land and sea.</li>
+        <li><b>Sea Ground:</b> To avoid the sea ground being completely flat, generate another noise, but with low max height. Add this noise to the height of the whole map, rather than just solely the island(s).</li>
+        <li><b>Volcanoes:</b> For creation of volcanoes and variation in mountains/hills, modify terrain structure using the "flood fill" algorithm.</li>
     </ul>
+    <p><b>Basic Texture Creation:</b> Now, we want to add some texture to our terrain.</p>
+    <ul>
+        <li><b>Island Texture:</b> Create textures/shader scripts for textures. For different textures such as sand, grass, rock, etc. generate weights for each texture with consideration to height. (Ex. Sand does not exist at high altitudes.)</li>
+        <li><b>Water Texture:</b> Create a water texture/shader script for water surrounding the island.</li>
+    </ul>
+    <p><b>Basic Assets:</b> Place additional assets into the terrain.</p>
+    <ul>
+        <li><b>Trees:</b> Generate additional noise, normalize, and add trees accordingly; vary the normalized noise to modify the density of the resulting forest. This involves creating a tree model, then texturing and shading accordingly.</li>
+    </ul>
+
+    <p><u>Aspirational Plan:</u></p>
+    <p>Assuming that we've successfully completed our baseline plan, we would also like to implement the following:</p>
+    <p><b>Additional Assets:</b> Having finished a basic, textured terrain, we would now like to implement other assets to our terrain so that it appears more realistic.</p>
+    <ul>
+        <li><b>Bushes:</b> Create a bush model, then add into the terrain (refer to trees/forest).</li>
+        <li><b>Animals:</b> Create and add animals into the terrain. Time allowing, implement simply animations for motion. (Ex. Rabbit hopping around.)</li>
+    </ul>
+    <p><b>Additional Physics:</b> Time allowing, we would also like to implement physics and/or other phenomenon(s) into our terrain. (Ex. Adding wind, rain, snow, etc.)</p>
+    <ul>
+        <li><b>Wind:</b> Add wind physics, such that all assets in terrain will follow same wind physics (water should also behave accordingly).</li>
+        <li><b>Rain:</b> Implement rain, possibly using a combination of scripts and particle systems.</li>
+    </ul>
+
     <h3>Schedule</h3>
     <p>In this section you should organize and plan the tasks and subtasks that your team will execute. Since presentations are ~4 weeks from the due-date of the proposal, you should include a set of tasks for every week.</p>
+
     <h3>Resources</h3>
+    <a href="https://docs.unity3d.com/Manual/index.html">Unity Documentation</a>
     <p>List what resources, e.g. books, papers and/or online resources that are references for your project. List the computing platform, hardware and software resources that you will use for your project. You have a wide latitude here to use what you have access to, but be aware that you will have to support and trouble-shoot on your platform yourselves. If you are starting from an existing piece of code or system, describe and provide a pointer to it here.</p>
 </body>
 </html>
