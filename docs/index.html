@@ -40,13 +40,17 @@
     <h1 align="middle">Procedural Terrain Generator</h1>
 
     <h3>Title, Summary and Team Members</h3>
-    <!--<p><u>Title:</u> Procedural Terrain Generator</p>-->
-    <!--<p><u>Summary:</u> The aim of this project is to create a realistic terrain generator, which will create a randomly-generated, 3D landscape terrain. In the process, we will also account for customizations of textures such as water, grass, stone, etc.</p>-->
-    <!--<h2 align="middle">Fangyu Wu, Xiaoyun Zhao, Fonda Xu (26133804)</h2>-->
-    <p>Provide us a descriptive title, 2-3 sentences that summarize your project, and list your three team members along with your SID's.</p>
+    <p><u>Title:</u> Procedural Terrain Generator</p>
+    <p><u>Summary:</u> The aim of this project is to create a realistic terrain generator, which will create a randomly-generated, 3D landscape terrain. In the process, we will also account for rendering of textures such as water, sand, stone, vegetation, etc.</p>
+    <p><u>Members:</u> Fangyu Wu (3034337466), Fonda Xu (26133804), Xiaoyun Zhao (3034340248)</p>
 
     <h3>Problem Description</h3>
-    <p>Here you should provide the context for your idea. Describe the problem that you are trying to solve, why it is important, where it is challenging. Give us a general idea on how you are going to solve it.</p>
+    <!--<p>Here you should provide the context for your idea. Describe the problem that you are trying to solve, why it is important, where it is challenging. Give us a general idea on how you are going to solve it.</p>-->
+    <p>In this project, we aim to <i>create</i> and <i>render</i> a 3D model of a random small island with natural geographical formations, photorealistic terran textures, and additional believable features.</p>
+    
+    <p>Our project is inspired by popular procedurally generated video games like <i>No Man's Sky </i> and <i>Minecraft</i>. In those games, the player can explore a practically inifintely large universe, where the surrounding world is generated and rendered in real time as players visit it. We find this idea both intellecturally challenging and artistically interesting, so we would like to propose it as our final project. </p>
+
+    <p>Based on our preliminary studies, we find two problems in our project are particularly challenging. The first challenge is to procedurally generate random mesh and textures that, when combined, assemble the appearance of a believeable island. To this end, we will start with a standard game development solution described in [1] and build up on it as we progress. The second challenge is to render the generated textures on the mesh in a photorealistic way. We have not yet decided exactly how to achieve this but we find texture synthesis seems to be very promising [2]. Finally, as the project is relatively large, we would like to use Uniy as the framework for development [3]. For optional additional deliverables, we may explore tools like Blender to build models for trees, buildings, and animals.</p>
 
     <h3>Goals and Deliverables</h3>
     <p>Our goal in this project is to create a terrain generator such that the resulting terrain appears as realistic as possible. For reference, we would imagine our ideal results to appear to be something along the lines of:</p>
@@ -55,12 +59,12 @@
         <table style="width=100%">
             <tr>
                 <td align="middle">
-                    <img src="images/img1.jpg" width="480px" />
-                    <figcaption align="middle">World of Tanks, environment</figcaption>
+                    <img src="images/img3.jpg" width="400px" />
+                    <figcaption align="middle">Mini Island from <i>Aftermath Islands</i></figcaption>
                 </td>
                 <td align="middle">
-                    <img src="images/img2.jpg" width="460px" />
-                    <figcaption align="middle">Terragen, example</figcaption>
+                    <img src="images/img4.jpg" width="400px" />
+                    <figcaption align="middle">Oasis Island from <i>Aftermath Islands</i></figcaption>
                 </td>
             </tr>
         </table>
@@ -93,18 +97,29 @@
         <li><b>Bushes:</b> Create a bush model, then add into the terrain (refer to trees/forest).</li>
         <li><b>Animals:</b> Create and add animals into the terrain. Time allowing, implement simply animations for motion. (Ex. Rabbit hopping around.)</li>
     </ul>
-    <p><b>Additional Physics:</b> Time allowing, we would also like to implement physics and/or other phenomenon(s) into our terrain. (Ex. Adding wind, rain, snow, etc.)</p>
+    <p><b>Additional Physics:</b> Time allowing, we would also like to implement physics and/or other phenomenon(s) into our terrain. (Ex. Adding wind, wave, rain, snow, etc.)</p>
     <ul>
         <li><b>Wind:</b> Add wind physics, such that all assets in terrain will follow same wind physics (water should also behave accordingly).</li>
+        <li><b>Wave:</b> Create waves on the ocean surface. The wave characteristics at the beaches (intense waves with splash) should be different from the waves away from lands (gentle waves without splash).</li>
         <li><b>Rain:</b> Implement rain, possibly using a combination of scripts and particle systems.</li>
     </ul>
 
     <h3>Schedule</h3>
-    <p>In this section you should organize and plan the tasks and subtasks that your team will execute. Since presentations are ~4 weeks from the due-date of the proposal, you should include a set of tasks for every week.</p>
+    <!--<p>In this section you should organize and plan the tasks and subtasks that your team will execute. Since presentations are ~4 weeks from the due-date of the proposal, you should include a set of tasks for every week.</p>-->
+    <ul>
+        <li><b>Week 1:</b> Build the full rendering pipeline inside Unity. Complete the random terrain mesh generation.</li>
+        <li><b>Week 2:</b> Complete texture rendering using Unity built-in ray tracing (or something else that is the standard practice). Use this as the benchmark for comparison.</li>
+        <li><b>Week 3:</b> Implement texture synthesis and compare it with the benchmark. Model trees in Blender and add it to the base terrain as additional features.</li>
+        <li><b>Week 4:</b> Buffer time for writing, testing, and debugging. If time permits, we will also implement the aspirational plan.</li>
+    </ul>
 
     <h3>Resources</h3>
-    <a href="https://docs.unity3d.com/Manual/index.html">Unity Documentation</a>
-    <p>List what resources, e.g. books, papers and/or online resources that are references for your project. List the computing platform, hardware and software resources that you will use for your project. You have a wide latitude here to use what you have access to, but be aware that you will have to support and trouble-shoot on your platform yourselves. If you are starting from an existing piece of code or system, describe and provide a pointer to it here.</p>
+    <ol>
+        <li><a href="https://link.springer.com/chapter/10.1007/978-3-319-53088-8_8">Procedural Terrain Generation. A Case Study from the Game Industry</a></li>
+        <li><a href="https://graphics.stanford.edu/papers/texture-synthesis-sig00/texture.pdf">Fast Texture Synthesis using Tree-structured Vector Quantization</a></li>
+        <li><a href="https://docs.unity3d.com/Manual/index.html">Unity Documentation</a></li>
+    </ol>
+    <!--<p>List what resources, e.g. books, papers and/or online resources that are references for your project. List the computing platform, hardware and software resources that you will use for your project. You have a wide latitude here to use what you have access to, but be aware that you will have to support and trouble-shoot on your platform yourselves. If you are starting from an existing piece of code or system, describe and provide a pointer to it here.</p>-->
 </body>
 </html>
 
