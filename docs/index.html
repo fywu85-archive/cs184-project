@@ -47,7 +47,7 @@
     <h3>Problem Description</h3>
     <!--<p>Here you should provide the context for your idea. Describe the problem that you are trying to solve, why it is important, where it is challenging. Give us a general idea on how you are going to solve it.</p>-->
     <p>In this project, we aim to <i>create</i> and <i>render</i> a 3D model of a random small island with natural geographical formations, photorealistic terran textures, and additional believable features.</p>
-    
+
     <p>Our project is inspired by popular procedurally generated video games like <i>No Man's Sky </i> and <i>Minecraft</i>. In those games, the player can explore a practically inifintely large universe, where the surrounding world is generated and rendered in real time as players visit it. We find this idea both intellecturally challenging and artistically interesting, so we would like to propose it as our final project. </p>
 
     <p>Based on our preliminary studies, we find two problems in our project are particularly challenging. The first challenge is to procedurally generate random mesh and textures that, when combined, assemble the appearance of a believeable island. To this end, we will start with a standard game development solution described in [1] and build up on it as we progress. The second challenge is to render the generated textures on the mesh in a photorealistic way. We have not yet decided exactly how to achieve this but we find texture synthesis seems to be very promising [2]. Finally, as the project is relatively large, we would like to use Uniy as the framework for development [3]. For optional additional deliverables, we may explore tools like Blender to build models for trees, buildings, and animals.</p>
@@ -85,6 +85,7 @@
         <li><b>Island Texture:</b> Create textures/shader scripts for textures. For different textures such as sand, grass, rock, etc. generate weights for each texture with consideration to height. (Ex. Sand does not exist at high altitudes.)</li>
         <li><b>Water Texture:</b> Create a water texture/shader script for water surrounding the island.</li>
     </ul>
+    <p>We will compare two different methods for texture rendering, one using the Unity built-in texture rendering routines and the other using our own implementation of a different approach such as texture synthesis (or other advanced methods).</p>
     <p><b>Basic Assets:</b> Place additional assets into the terrain.</p>
     <ul>
         <li><b>Trees:</b> Generate additional noise, normalize, and add trees accordingly; vary the normalized noise to modify the density of the resulting forest. This involves creating a tree model, then texturing and shading accordingly.</li>
